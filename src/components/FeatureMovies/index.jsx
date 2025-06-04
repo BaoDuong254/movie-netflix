@@ -1,6 +1,7 @@
 import PaginateIndicator from "./PaginateIndicator";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const FeatureMovies = () => {
     const [movies, setMovies] = useState([]);
@@ -23,12 +24,23 @@ const FeatureMovies = () => {
     }, []);
 
     return (
-        <div className="relative text-white">
-            {movies
-                .filter((movie) => movie.id === activeMovieId)
-                .map((movie) => (
-                    <Movie key={movie.id} data={movie} />
-                ))}
+        <div className="relative h-[90vh] w-full overflow-hidden text-white">
+            <AnimatePresence mode="sync">
+                {movies
+                    .filter((movie) => movie.id === activeMovieId)
+                    .map((movie) => (
+                        <motion.div
+                            key={movie.id}
+                            className="absolute inset-0"
+                            initial={{ x: "100%", opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: "-100%", opacity: 0 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <Movie key={movie.id} data={movie} />
+                        </motion.div>
+                    ))}
+            </AnimatePresence>
             <PaginateIndicator
                 movies={movies}
                 activeMovieId={activeMovieId}
