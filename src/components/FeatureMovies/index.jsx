@@ -2,6 +2,8 @@ import PaginateIndicator from "./PaginateIndicator";
 import Movie from "./Movie";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const FeatureMovies = () => {
     const [movies, setMovies] = useState([]);
@@ -24,7 +26,7 @@ const FeatureMovies = () => {
     }, []);
 
     return (
-        <div className="relative h-[90vh] w-full overflow-hidden text-white">
+        <div className="relative h-[90vh] w-full overflow-hidden bg-black text-white">
             <AnimatePresence mode="sync">
                 {movies
                     .filter((movie) => movie.id === activeMovieId)
