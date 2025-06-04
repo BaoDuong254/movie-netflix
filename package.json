@@ -19,8 +19,7 @@
         "@fortawesome/react-fontawesome": "^0.2.2",
         "@tailwindcss/vite": "^4.1.8",
         "react": "^19.1.0",
-        "react-dom": "^19.1.0",
-        "tailwindcss": "^4.1.8"
+        "react-dom": "^19.1.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.25.0",
@@ -39,6 +38,7 @@
         "postcss": "^8.5.4",
         "prettier": "^3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.12",
+        "tailwindcss": "^3.4.17",
         "vite": "^6.3.5"
     },
     "lint-staged": {
