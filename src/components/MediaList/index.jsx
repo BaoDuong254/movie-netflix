@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MovieCard from "../MovieCard";
+import useFetch from "@hooks/useFetch";
 
 const MediaList = ({ title, tabs }) => {
-    const [mediaList, setMediaList] = useState([]);
     const [activeTabId, setActiveTabId] = useState(tabs[0]?.id);
 
-    useEffect(() => {
-        const url = tabs.find((tab) => tab.id === activeTabId)?.url;
-        if (!url) return;
-        fetch(url, {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OWU2NjdlNThjOTI0YjIyYmM1ZTliYzc2ODNhMDU1OCIsIm5iZiI6MTc0ODUyNDQ0OS44OTY5OTk4LCJzdWIiOiI2ODM4NWRhMWY2YzhkNDQ4M2IyYjg2NDciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.cfT4egj48nxjEborzkstwfXzFwKVbcaPBWEaLo-cHUY",
-            },
-        }).then(async (res) => {
-            const data = await res.json();
-            const trendingMediaList = data.results.slice(0, 12);
-            setMediaList(trendingMediaList);
-        });
-    }, [activeTabId, tabs]);
+    const url = tabs.find((tab) => tab.id === activeTabId)?.url;
+
+    const { data } = useFetch({ url });
+
+    const mediaList = (data.results || []).slice(0, 12);
 
     return (
         <div className="bg-black px-8 py-10 text-[1.2vw] text-white">

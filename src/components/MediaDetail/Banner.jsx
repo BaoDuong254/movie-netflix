@@ -3,6 +3,7 @@ import CircularProgressBar from "../CircularProgressBar";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { groupBy } from "lodash";
+import ImageComponent from "@components/Image";
 
 const Banner = ({ mediaInfo }) => {
     const certification =
@@ -26,16 +27,20 @@ const Banner = ({ mediaInfo }) => {
 
     return (
         <div className="relative overflow-hidden text-white shadow-sm shadow-slate-800">
-            <img
+            <ImageComponent
                 src={`https://image.tmdb.org/t/p/original${mediaInfo.backdrop_path}`}
                 alt={mediaInfo.title}
                 className="absolute inset-0 brightness-[.2]"
+                width={1920}
+                height={1080}
             />
             <div className="relative mx-auto flex max-w-screen-xl gap-6 px-6 py-10 lg:gap-8">
                 <div className="flex-1">
-                    <img
+                    <ImageComponent
                         src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${mediaInfo.poster_path}`}
                         alt={mediaInfo.title}
+                        width={600}
+                        height={900}
                     />
                 </div>
                 <div className="flex-[2] text-[1.2vw]">

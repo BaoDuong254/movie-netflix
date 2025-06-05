@@ -1,3 +1,4 @@
+import ImageComponent from "@components/Image";
 import { currencyFormatter } from "@lib/utils";
 import React from "react";
 
@@ -13,11 +14,13 @@ const MovieInfo = ({ movieInfo = [] }) => {
                 <p className="font-bold">Original Country</p>
                 {(movieInfo.origin_country || []).map((countryCode) => {
                     return (
-                        <img
+                        <ImageComponent
                             src={`https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`}
                             alt="Country Flag"
                             key={countryCode}
                             className="mr-1 mt-1 w-[1.4vw]"
+                            width={48}
+                            height={36}
                         />
                     );
                 })}

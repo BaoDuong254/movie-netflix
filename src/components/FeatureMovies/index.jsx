@@ -4,26 +4,23 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import useFetch from "@hooks/useFetch";
 
 const FeatureMovies = () => {
-    const [movies, setMovies] = useState([]);
     const [activeMovieId, setActiveMovieId] = useState();
 
+    const { data: popularMoviesResponse } = useFetch({
+        url: "/movie/popular",
+    });
+
+    const movies = (popularMoviesResponse?.results || []).slice(0, 4);
+
     useEffect(() => {
-        fetch("https://api.themoviedb.org/3/movie/popular", {
-            method: "GET",
-            headers: {
-                accept: "application/json",
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OWU2NjdlNThjOTI0YjIyYmM1ZTliYzc2ODNhMDU1OCIsIm5iZiI6MTc0ODUyNDQ0OS44OTY5OTk4LCJzdWIiOiI2ODM4NWRhMWY2YzhkNDQ4M2IyYjg2NDciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.cfT4egj48nxjEborzkstwfXzFwKVbcaPBWEaLo-cHUY",
-            },
-        }).then(async (res) => {
-            const data = await res.json();
-            const popularMovies = data.results.slice(0, 4);
-            setMovies(popularMovies);
-            setActiveMovieId(popularMovies[0].id);
-        });
-    }, []);
+        if (movies[0]?.id) {
+            setActiveMovieId(movies[0].id);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [JSON.stringify(movies)]);
 
     return (
         <div className="relative h-[90vh] w-full overflow-hidden bg-black text-white">
