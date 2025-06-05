@@ -10,6 +10,7 @@ const useFetch = ({ url = "", method = "GET", headers = {} }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         fetch(`${import.meta.env.VITE_API_HOST}${url}`, {
             method,
             headers: {
