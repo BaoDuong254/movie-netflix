@@ -1,0 +1,24 @@
+import React from "react";
+
+const ActorInfo = ({ id, name, character, profile_path }) => {
+    return (
+        <div className="rounded-lg border border-slate-300 bg-black shadow-sm">
+            <img
+                src={
+                    profile_path
+                        ? `https://image.tmdb.org/t/p/w276_and_h350_face${profile_path}`
+                        : "/actorNoImage.svg"
+                }
+                alt={`${name} as ${character}, id: ${id}`}
+                className="rounded-lg"
+            />
+            <div className="p-3">
+                <p className="font-bold">{name}</p>
+                <p>{character}</p>
+                <p>18 ep</p>
+            </div>
+        </div>
+    );
+};
+
+export default ActorInfo;
