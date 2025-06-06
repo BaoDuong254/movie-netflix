@@ -9,10 +9,16 @@ const Header = () => {
                 <Link to="/">
                     <img src="/netflix.png" className="w-16 sm:w-28" />
                 </Link>
-                <Link to={"/search?mediaType=movie"} className="lg:text-xl">
+                <Link
+                    to={"/search?mediaType=movie"}
+                    className="transition-all hover:text-red-500 lg:text-xl"
+                >
                     Movie
                 </Link>
-                <Link to={"/search?mediaType=tv"} className="lg:text-xl">
+                <Link
+                    to={"/search?mediaType=tv"}
+                    className="transition-all hover:text-red-500 lg:text-xl"
+                >
                     TV Show
                 </Link>
             </div>
