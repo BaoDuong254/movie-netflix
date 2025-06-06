@@ -16,7 +16,7 @@ const MovieCard = ({ id, title, release_date, poster, point, mediaType }) => {
                     </div>
                 )}
                 <ImageComponent
-                    src={`https://image.tmdb.org/t/p/w500${poster}`}
+                    src={poster && `https://image.tmdb.org/t/p/w500${poster}`}
                     alt={title}
                     className="w-full rounded-lg"
                     width={210}

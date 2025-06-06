@@ -14,7 +14,10 @@ const TVInfo = ({ tvInfo = [] }) => {
                 {(tvInfo.origin_country || []).map((countryCode) => {
                     return (
                         <ImageComponent
-                            src={`https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`}
+                            src={
+                                countryCode.toLowerCase() &&
+                                `https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`
+                            }
                             alt="Country Flag"
                             key={countryCode}
                             className="mr-1 mt-1 w-[1.4vw]"
@@ -37,7 +40,10 @@ const TVInfo = ({ tvInfo = [] }) => {
                             className="mb-1 flex items-center"
                         >
                             <ImageComponent
-                                src={`https://image.tmdb.org/t/p/h30${network.logo_path}`}
+                                src={
+                                    network.logo_path &&
+                                    `https://image.tmdb.org/t/p/h30${network.logo_path}`
+                                }
                                 alt={`${network.name} Logo`}
                                 className="mr-2 invert"
                                 width={48}

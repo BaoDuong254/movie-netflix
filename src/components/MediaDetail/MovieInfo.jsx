@@ -15,7 +15,10 @@ const MovieInfo = ({ movieInfo = [] }) => {
                 {(movieInfo.origin_country || []).map((countryCode) => {
                     return (
                         <ImageComponent
-                            src={`https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`}
+                            src={
+                                countryCode.toLowerCase() &&
+                                `https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`
+                            }
                             alt="Country Flag"
                             key={countryCode}
                             className="mr-1 mt-1 w-[1.4vw]"
