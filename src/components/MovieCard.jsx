@@ -11,7 +11,7 @@ const MovieCard = ({ id, title, release_date, poster, point, mediaType }) => {
         >
             <div className="relative">
                 {mediaType === "tv" && (
-                    <div className="absolute right-1 top-1 rounded bg-black p-1 text-sm font-bold text-white shadow-md">
+                    <div className="absolute right-1 top-1 rounded bg-black p-1 font-bold text-white shadow-md sm:text-sm">
                         TV Show
                     </div>
                 )}
