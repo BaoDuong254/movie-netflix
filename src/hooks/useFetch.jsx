@@ -5,11 +5,17 @@ const DEFAULT_HEADERS = {
     Authorization: `Bearer ${import.meta.env.VITE_API_TOKEN}`,
 };
 
-const useFetch = ({ url = "", method = "GET", headers = {} }) => {
+const useFetch = (
+    { url = "", method = "GET", headers = {} },
+    { enabled } = { enabled: true }
+) => {
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        if (enabled === false) {
+            return;
+        }
         setIsLoading(true);
         fetch(`${import.meta.env.VITE_API_HOST}${url}`, {
             method,
@@ -29,7 +35,7 @@ const useFetch = ({ url = "", method = "GET", headers = {} }) => {
                 setIsLoading(false);
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url, method, JSON.stringify(headers)]);
+    }, [url, method, JSON.stringify(headers), enabled]);
 
     return { data, isLoading };
 };

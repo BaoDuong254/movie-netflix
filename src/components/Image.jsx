@@ -7,17 +7,23 @@ const ImageComponent = ({ src, alt, width, height, className }) => {
 
     useEffect(() => {
         const img = new Image();
-        img.src = src;
+        if (src) {
+            img.src = src;
 
-        img.onload = () => {
-            setCurrentSrc(src);
-        };
+            img.onload = () => {
+                setCurrentSrc(src);
+            };
 
-        img.onerror = () => {
-            setCurrentSrc(`https://placehold.co/${width}x${height}?text=Error`);
-        };
+            img.onerror = () => {
+                setCurrentSrc(
+                    `https://placehold.co/${width}x${height}?text=Error`
+                );
+            };
+            return;
+        }
 
-        // Cleanup function to avoid memory leaks
+        setCurrentSrc(`https://placehold.co/${width}x${height}?text=No Image`);
+
         return () => {
             img.onload = null;
             img.onerror = null;
