@@ -19,9 +19,13 @@ const ActorInfo = ({ id, name, character, profile_path, episode_count }) => {
                 height={350}
             />
             <div className="p-3">
-                <p className="font-bold">{name}</p>
-                <p>{character}</p>
-                {episode_count && <p>{episode_count} Ep</p>}
+                <p className="font-bold max-sm:text-[3vw]">{name}</p>
+                <p className="max-sm:text-[2vw]">{character}</p>
+                {episode_count && (
+                    <p className="max-sm:text-[2vw]">
+                        {episode_count} Episodes
+                    </p>
+                )}
             </div>
         </Link>
     );

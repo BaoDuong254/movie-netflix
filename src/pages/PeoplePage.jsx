@@ -22,36 +22,54 @@ const PeoplePage = () => {
                         className="mb-6"
                     />
                     <div>
-                        <p className="mb-6 text-[1.3vw] text-lg font-bold">
+                        <p className="mb-6 text-[1.3vw] text-lg font-bold max-sm:text-[4vw]">
                             Personal Info
                         </p>
                         <div className="space-y-4">
                             <div>
-                                <p className="font-bold">Known for</p>
-                                <p>{peopleInfo.known_for_department} </p>
+                                <p className="font-bold max-sm:text-[4vw]">
+                                    Known for
+                                </p>
+                                <p className="max-sm:text-[3vw]">
+                                    {peopleInfo.known_for_department}{" "}
+                                </p>
                             </div>
                             <div>
-                                <p className="font-bold">Gender</p>
-                                <p>{GENRDER_MAPPING[peopleInfo.gender]}</p>
+                                <p className="font-bold max-sm:text-[4vw]">
+                                    Gender
+                                </p>
+                                <p className="max-sm:text-[3vw]">
+                                    {GENRDER_MAPPING[peopleInfo.gender]}
+                                </p>
                             </div>
                             <div>
-                                <p className="font-bold">Place of birth</p>
-                                <p>{peopleInfo.place_of_birth}</p>
+                                <p className="font-bold max-sm:text-[4vw]">
+                                    Place of birth
+                                </p>
+                                <p className="max-sm:text-[3vw]">
+                                    {peopleInfo.place_of_birth}
+                                </p>
                             </div>
                             <div>
-                                <p className="font-bold">Birthday</p>
-                                <p>{peopleInfo.birthday}</p>
+                                <p className="font-bold max-sm:text-[4vw]">
+                                    Birthday
+                                </p>
+                                <p className="max-sm:text-[3vw]">
+                                    {peopleInfo.birthday}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="flex-[2]">
-                    <p className="mb-6 text-[1.5vw] font-bold">
+                    <p className="mb-6 text-[1.5vw] font-bold max-sm:text-[5vw]">
                         {peopleInfo.name}
                     </p>
                     <div className="mb-6">
-                        <p className="mb-4 text-[1.4vw] font-bold">Biography</p>
-                        <p className="whitespace-pre-line">
+                        <p className="mb-4 text-[1.4vw] font-bold max-sm:text-[4vw]">
+                            Biography
+                        </p>
+                        <p className="whitespace-pre-line max-sm:text-[3vw]">
                             {peopleInfo.biography || "No biography available."}
                         </p>
                     </div>

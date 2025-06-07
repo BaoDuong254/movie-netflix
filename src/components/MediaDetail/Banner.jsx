@@ -30,7 +30,7 @@ const Banner = ({
                     `https://image.tmdb.org/t/p/original${backdrop_path}`
                 }
                 alt={title}
-                className="absolute inset-0 aspect-video w-full brightness-[.2]"
+                className="absolute inset-0 aspect-video h-full w-full object-cover brightness-[.2]"
                 width={1920}
                 height={1080}
             />
@@ -47,20 +47,22 @@ const Banner = ({
                     />
                 </div>
                 <div className="flex-[2] text-[1.2vw]">
-                    <p className="mb-2 text-[2vw] font-bold">{title}</p>
+                    <p className="mb-2 text-[2vw] font-bold max-sm:text-[5vw]">
+                        {title}
+                    </p>
                     <div className="flex items-center gap-4">
-                        <span className="border border-gray-400 p-1 text-gray-400">
+                        <span className="border border-gray-400 p-1 text-gray-400 max-sm:text-[3vw]">
                             {certification}
                         </span>
-                        <p>{release_date}</p>
-                        <p>
+                        <p className="max-sm:text-[3vw]">{release_date}</p>
+                        <p className="max-sm:text-[3vw]">
                             {(genres || [])
                                 .map((genre) => genre.name)
                                 .join(", ")}
                         </p>
                     </div>
                     <div className="mt-4 flex items-center gap-4">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 max-sm:text-[3vw]">
                             <CircularProgressBar
                                 percent={Math.round(point * 10)}
                                 size={3.5}
@@ -78,16 +80,19 @@ const Banner = ({
                                     />
                                 );
                             }}
+                            className="max-sm:text-[3vw]"
                         >
                             <FontAwesomeIcon icon={faPlay} className="mr-1" />
                             Trailer
                         </button>
                     </div>
                     <div className="mt-4">
-                        <p className="mb-2 text-[1.3vw] font-bold">Overview</p>
-                        <p>{overview}</p>
+                        <p className="mb-2 text-[1.3vw] font-bold max-sm:text-[4vw]">
+                            Overview
+                        </p>
+                        <p className="max-sm:text-[3vw]">{overview}</p>
                     </div>
-                    <div className="mt-4 grid grid-cols-2 gap-2">
+                    <div className="mt-4 grid grid-cols-2 gap-2 max-sm:text-[2vw]">
                         {Object.keys(groupedCrews).map((job) => (
                             <div key={job}>
                                 <p className="font-bold">{job}</p>

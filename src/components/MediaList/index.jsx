@@ -14,12 +14,12 @@ const MediaList = ({ title, tabs }) => {
     return (
         <div className="bg-black px-8 py-10 text-[1.2vw] text-white">
             <div className="mb-6 flex items-center gap-4">
-                <p className="text-[2vw] font-bold">{title}</p>
+                <p className="text-[5vw] font-bold sm:text-[2vw]">{title}</p>
                 <ul className="flex rounded border border-white">
                     {tabs.map((tab) => (
                         <li
                             key={tab.id}
-                            className={`cursor-pointer rounded px-2 py-1 ${
+                            className={`cursor-pointer rounded px-2 py-1 max-sm:text-[5vw] ${
                                 activeTabId === tab.id
                                     ? "bg-white text-black"
                                     : ""

@@ -16,9 +16,10 @@ export default defineConfig({
             "@context": path.resolve(__dirname, "src/context"),
         },
     },
-    // server: {
-    //     allowedHosts: [
-    //         "3a21-2001-ee0-519a-62e0-5d13-89a-e3ed-8db1.ngrok-free.app",
-    //     ],
-    // },
+    // Enable CORS for development
+    server: {
+        allowedHosts: [
+            "631d-2001-ee0-519a-62e0-d9db-7627-d09-c524.ngrok-free.app",
+        ],
+    },
 });

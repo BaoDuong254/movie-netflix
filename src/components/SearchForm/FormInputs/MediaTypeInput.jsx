@@ -10,9 +10,11 @@ const MediaTypeInput = ({ onChange, value, name }) => {
                 onChange={onChange}
                 checked={value === "movie"}
                 id="sf-type-movie"
-                className="mr-1"
+                className="mr-1 cursor-pointer"
             />
-            <label htmlFor="sf-type-movie">Movie</label>
+            <label htmlFor="sf-type-movie" className="cursor-pointer">
+                Movie
+            </label>
             <br />
             <input
                 type="radio"
@@ -21,9 +23,11 @@ const MediaTypeInput = ({ onChange, value, name }) => {
                 onChange={onChange}
                 checked={value === "tv"}
                 id="sf-type-tv"
-                className="mr-1"
+                className="mr-1 cursor-pointer"
             />
-            <label htmlFor="sf-type-tv">TV Show</label>
+            <label htmlFor="sf-type-tv" className="cursor-pointer">
+                TV Show
+            </label>
         </div>
     );
 };

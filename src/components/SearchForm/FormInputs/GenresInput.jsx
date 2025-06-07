@@ -22,7 +22,7 @@ const GenresInput = ({ control, onChange, value = [] }) => {
                 return (
                     <p
                         key={genre.id}
-                        className={`cursor-pointer rounded-lg border px-2 py-1 ${value.includes(genre.id) ? "bg-black text-white" : ""}`}
+                        className={`cursor-pointer rounded-lg border px-2 py-1 hover:bg-black hover:text-white ${value.includes(genre.id) ? "bg-black text-white" : ""}`}
                         onClick={() => {
                             if (value.includes(genre.id)) {
                                 onChange(value.filter((id) => id !== genre.id));

@@ -4,6 +4,10 @@ const CircularProgressBar = ({
     strokeWidth = 0.25,
     strokeColor = "green",
 }) => {
+    const mediaQuery = window.matchMedia("(max-width: 639px)");
+    if (mediaQuery.matches) {
+        size = 7;
+    }
     const radius = size / 2 - strokeWidth;
     return (
         <div>
@@ -35,6 +39,7 @@ const CircularProgressBar = ({
                     fontSize="1.2vw"
                     alignmentBaseline="middle"
                     textAnchor="middle"
+                    className="max-sm:text-[3vw]"
                 >
                     {percent}
                 </text>

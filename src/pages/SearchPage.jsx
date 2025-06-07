@@ -23,6 +23,8 @@ const SearchPage = () => {
         url: `/discover/${searchFormValues.mediaType}?with_genres=${searchFormValues.genres.join(",")}${ratingQuery}&sort_by=popularity.desc`,
     });
 
+    const location = "search";
+
     return (
         <div className="container flex-col">
             <p className="text-2xl font-bold">Search</p>
@@ -31,7 +33,10 @@ const SearchPage = () => {
                     {<SearchForm setSearchFormValues={setSearchFormValues} />}
                 </div>
                 <div className="flex-[3]">
-                    <RelatedMediaList mediaList={data.results || []} />
+                    <RelatedMediaList
+                        location={location}
+                        mediaList={data.results || []}
+                    />
                 </div>
             </div>
         </div>

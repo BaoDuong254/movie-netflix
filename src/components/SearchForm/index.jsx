@@ -10,7 +10,7 @@ const SearchForm = ({ setSearchFormValues }) => {
     const [searchParams] = useSearchParams();
     const mediaTypeParam = searchParams.get("mediaType");
 
-    const { handleSubmit, control, watch } = useForm({
+    const { handleSubmit, control, watch, reset } = useForm({
         defaultValues: {
             mediaType: ["tv", "movie"].includes(mediaTypeParam)
                 ? mediaTypeParam
@@ -25,6 +25,16 @@ const SearchForm = ({ setSearchFormValues }) => {
     };
 
     const formValues = watch();
+
+    useEffect(() => {
+        reset({
+            mediaType: ["tv", "movie"].includes(mediaTypeParam)
+                ? mediaTypeParam
+                : "movie",
+            genres: [],
+            rating: "All",
+        });
+    }, [mediaTypeParam, reset]);
 
     useEffect(() => {
         setSearchFormValues(formValues);

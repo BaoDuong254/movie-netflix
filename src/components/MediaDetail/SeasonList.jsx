@@ -10,7 +10,9 @@ const SeasonList = ({ seasons = [] }) => {
         : seasons.slice(0, 4);
     return (
         <div className="mt-8 text-[1.3vw]">
-            <p className="mb-4 text-[1.4vw] font-bold">Season</p>
+            <p className="mb-4 text-[1.4vw] font-bold max-sm:text-[5vw]">
+                Season
+            </p>
             <div className="space-y-4">
                 {currentSeasons.map((season) => (
                     <div
@@ -28,11 +30,13 @@ const SeasonList = ({ seasons = [] }) => {
                             height={195}
                         />
                         <div className="space-y-1">
-                            <p className="text-[1.4vw] font-bold">
+                            <p className="text-[1.4vw] font-bold max-sm:text-[4vw]">
                                 {season.name}
                             </p>
                             <div className="flex items-center gap-2">
-                                <p className="font-bold">Rating</p>
+                                <p className="font-bold max-sm:text-[4vw]">
+                                    Rating
+                                </p>
                                 <CircularProgressBar
                                     percent={Math.round(
                                         (season.vote_average || 0) * 10
@@ -41,12 +45,18 @@ const SeasonList = ({ seasons = [] }) => {
                                     strokeWidth={0.2}
                                 />
                             </div>
-                            <p>
-                                <span className="font-bold">Release Date:</span>
+                            <p className="max-sm:text-[2vw]">
+                                <span className="font-bold">
+                                    Release Date:{" "}
+                                </span>
                                 {season.air_date || "N/A"}
                             </p>
-                            <p>{season.episode_count} Episodes</p>
-                            <p>{season.overview}</p>
+                            <p className="max-sm:text-[2vw]">
+                                {season.episode_count} Episodes
+                            </p>
+                            <p className="line-clamp-2 max-sm:text-[2vw]">
+                                {season.overview}
+                            </p>
                         </div>
                     </div>
                 ))}

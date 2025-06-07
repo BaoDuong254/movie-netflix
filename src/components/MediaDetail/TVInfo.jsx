@@ -4,13 +4,15 @@ import React from "react";
 const TVInfo = ({ tvInfo = [] }) => {
     return (
         <div>
-            <p className="mb-4 text-[1.4vw] font-bold">Information</p>
+            <p className="mb-4 text-[1.4vw] font-bold max-sm:text-[5vw]">
+                Information
+            </p>
             <div className="mb-4">
-                <p className="font-bold">Original Name</p>
-                <p>{tvInfo.original_name}</p>
+                <p className="font-bold max-sm:text-[4vw]">Original Name</p>
+                <p className="max-sm:text-[3vw]">{tvInfo.original_name}</p>
             </div>
             <div className="mb-4">
-                <p className="font-bold">Original Country</p>
+                <p className="font-bold max-sm:text-[4vw]">Original Country</p>
                 {(tvInfo.origin_country || []).map((countryCode) => {
                     return (
                         <ImageComponent
@@ -20,7 +22,7 @@ const TVInfo = ({ tvInfo = [] }) => {
                             }
                             alt="Country Flag"
                             key={countryCode}
-                            className="mr-1 mt-1 w-[1.4vw]"
+                            className="mr-1 mt-1 w-[1.4vw] max-sm:w-[3vw]"
                             width={48}
                             height={36}
                         />
@@ -28,11 +30,11 @@ const TVInfo = ({ tvInfo = [] }) => {
                 })}
             </div>
             <div className="mb-4">
-                <p className="font-bold">Status</p>
-                <p>{tvInfo.status}</p>
+                <p className="font-bold max-sm:text-[4vw]">Status</p>
+                <p className="max-sm:text-[3vw]">{tvInfo.status}</p>
             </div>
             <div className="mb-4">
-                <p className="font-bold">Network</p>
+                <p className="font-bold max-sm:text-[4vw]">Network</p>
                 {(tvInfo.networks || []).map((network) => {
                     return (
                         <div
