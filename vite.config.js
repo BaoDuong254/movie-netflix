@@ -17,9 +17,9 @@ export default defineConfig({
         },
     },
     // Enable CORS for development
-    server: {
-        allowedHosts: [
-            "631d-2001-ee0-519a-62e0-d9db-7627-d09-c524.ngrok-free.app",
-        ],
-    },
+    // server: {
+    //     allowedHosts: [
+    //         "f4a4-2001-ee0-519a-62e0-d9db-7627-d09-c524.ngrok-free.app",
+    //     ],
+    // },
 });

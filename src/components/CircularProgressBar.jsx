@@ -6,40 +6,51 @@ const CircularProgressBar = ({
 }) => {
     const mediaQuery = window.matchMedia("(max-width: 639px)");
     if (mediaQuery.matches) {
-        size = 7;
+        size = 8;
+        strokeWidth = 0.5;
     }
     const radius = size / 2 - strokeWidth;
+    const center = size / 2;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percent / 100) * circumference;
+
     return (
         <div>
-            <svg width={`${size}vw`} height={`${size}vw`}>
+            <svg
+                viewBox={`0 0 ${size} ${size}`}
+                width="100%"
+                height="100%"
+                style={{ width: `${size}vw`, height: `${size}vw` }}
+            >
                 <circle
-                    r={`${radius}vw`}
-                    cx={`${size / 2}vw`}
-                    cy={`${size / 2}vw`}
+                    r={radius}
+                    cx={center}
+                    cy={center}
                     stroke="white"
-                    strokeWidth={`${strokeWidth}vw`}
+                    strokeWidth={strokeWidth}
+                    fill="black"
                 />
                 <circle
-                    r={`${radius}vw`}
-                    cx={`${size / 2}vw`}
-                    cy={`${size / 2}vw`}
+                    r={radius}
+                    cx={center}
+                    cy={center}
                     stroke={strokeColor}
                     fill="none"
-                    strokeWidth={`${strokeWidth}vw`}
-                    strokeDasharray={`${2 * Math.PI * radius}vw`}
-                    strokeDashoffset={`${2 * Math.PI * radius - (percent / 100) * 2 * Math.PI * radius}vw`}
-                    transform="rotate(-90)"
-                    style={{ transformOrigin: "center" }}
+                    strokeWidth={strokeWidth}
+                    strokeDasharray={circumference}
+                    strokeDashoffset={offset}
+                    transform={`rotate(-90 ${center} ${center})`}
                     strokeLinecap="round"
                 />
                 <text
-                    x={`${size / 2}vw`}
-                    y={`${size / 2}vw`}
+                    x={center}
+                    y={center}
                     fill="white"
-                    fontSize="1.2vw"
+                    fontSize={size * 0.4}
                     alignmentBaseline="middle"
                     textAnchor="middle"
-                    className="max-sm:text-[3vw]"
+                    className="max-sm:text-[1vw]"
+                    dominantBaseline="middle"
                 >
                     {percent}
                 </text>
