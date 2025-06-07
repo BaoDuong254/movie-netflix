@@ -1,8 +1,25 @@
 {
     "name": "movieapp",
+    "version": "1.0.0",
     "private": true,
-    "version": "0.0.0",
+    "description": "A simple movie web app",
+    "keywords": [
+        "Vite",
+        "ReactJS",
+        "Tailwind"
+    ],
+    "homepage": "https://github.com/BaoDuong254/movie-netflix#readme",
+    "bugs": {
+        "url": "https://github.com/BaoDuong254/movie-netflix/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BaoDuong254/movie-netflix.git"
+    },
+    "license": "ISC",
+    "author": "BaoDuong254 <duonggiabao254@gmail.com>",
     "type": "module",
+    "main": "eslint.config.js",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
