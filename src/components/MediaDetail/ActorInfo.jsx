@@ -6,7 +6,7 @@ const ActorInfo = ({ id, name, character, profile_path, episode_count }) => {
     return (
         <Link
             to={`/people/${id}`}
-            className="rounded-lg border border-slate-300 bg-black shadow-sm"
+            className="rounded-lg border border-slate-300 bg-black shadow-sm duration-300 ease-in-out hover:-translate-y-1"
         >
             <ImageComponent
                 src={
