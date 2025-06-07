@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/RootLayout.jsx";
 import ModalProvider from "./context/ModalProvider";
 import { lazy } from "react";
+import NotFound from "@components/NotFound";
 
 const MovieDetail = lazy(() => import("./pages/MovieDetail.jsx"));
 const PeoplePage = lazy(() => import("./pages/PeoplePage.jsx"));
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
                 },
             },
         ],
+    },
+    {
+        path: "*",
+        element: <NotFound />,
     },
 ]);
 
