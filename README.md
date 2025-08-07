@@ -19,7 +19,7 @@ Follow these steps to run the project locally:
 ### Prerequisites
 
 - Node.js
-- npm or yarn
+- npm
 
 ### Installation
 
@@ -39,8 +39,6 @@ Follow these steps to run the project locally:
 
     ```bash
     npm install
-    # or
-    yarn install
     ```
 
 4. Configure environment variables:
@@ -57,8 +55,6 @@ Follow these steps to run the project locally:
 
     ```bash
     npm run dev
-    # or
-    yarn dev
     ```
 
     The app will be available at `http://localhost:5173`.
@@ -67,8 +63,6 @@ Follow these steps to run the project locally:
 
 ```bash
 npm run build
-# or
-yarn build
 ```
 
 The optimized production build will be output to the `dist` directory.
