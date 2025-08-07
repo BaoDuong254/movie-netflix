@@ -36,9 +36,11 @@ const SearchForm = ({ setSearchFormValues }) => {
         });
     }, [mediaTypeParam, reset]);
 
+    const formValuesString = JSON.stringify(formValues);
+
     useEffect(() => {
         setSearchFormValues(formValues);
-    }, [JSON.stringify(formValues), setSearchFormValues]);
+    }, [formValuesString, setSearchFormValues, formValues]);
 
     return (
         <div className="rounded-lg border p-4 shadow-md">
